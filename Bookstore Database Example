@@ -1,0 +1,28 @@
+--This is a base level example of a quick table I put together showing what a 12 day snapshot might look like for a bargain bookstore.--
+
+--Here I create the table that the data will go into as well as outline the different keys and columns that will make up the data base.--
+CREATE TABLE bookstore (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, purchase_date INTEGER, returned TEXT);
+
+--Below is 15 lines of data that I inserted into the table to show what it how data would be inserted given the parameters I wrote above.--
+
+INSERT INTO bookstore VALUES (1, "The Grapes Of Wrath", 2.49, 01052022, "No");
+INSERT INTO bookstore VALUES (2, "Daylogic", 9.99, 01062022,"No");
+INSERT INTO bookstore VALUES (3, "Horns",5.99, 01062022, "Yes");
+INSERT INTO bookstore VALUES (4, "Mouse Trap", 3.50, 01062022, "No");
+INSERT INTO bookstore VALUES (5, "Plates of the World", 6.99, 01072022, "No");
+INSERT INTO bookstore VALUES (6, "Love and Robots", 6.50, 01072022, "Yes");
+INSERT INTO bookstore VALUES (7, "World Cooking", 10.99, 01082022, "No");
+INSERT INTO bookstore VALUES (8, "Cats of Brooklyn", 10.99, 01102022, "No");
+INSERT INTO bookstore VALUES (9, "Houseplants: A How-To", 2.00, 01112022, "Yes");
+INSERT INTO bookstore VALUES (10, "LoFi Beats", 5.99, 01122022,"Yes");
+INSERT INTO bookstore VALUES (11, "Myths of Ireland", 8.99, 01142022,"No");
+INSERT INTO bookstore VALUES (12, "Christmas Songs of Sweden", 6.99, 01142022, "No");
+INSERT INTO bookstore VALUES (13, "Home Decor for Beginners", 4.99, 01152022, "No");
+INSERT INTO bookstore VALUES (14, "Buddhism and The West", 5.99, 01152022, "No");
+INSERT INTO bookstore VALUES (15, "How to Write SQL", 9.99, 01172022, "No");
+
+--I then wrote a "SELECT" statement where I would like the database to give me a result showing what books were purchased that were more expensive than $4.99 and then had them ordered by date of purchase.--
+SELECT * FROM bookstore WHERE price >4.99 ORDER BY purchase_date;
+
+--This "SELECT" statement is showing the titles of books bought at the store and what the status of their return is.--
+SELECT name FROM bookstore GROUP BY returned;
